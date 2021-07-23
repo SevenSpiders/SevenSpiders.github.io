@@ -1,5 +1,15 @@
+
+// @font-face
+//     font-family Roboto
+//     font-style bold
+//     // src url(fonts/geo_sans_light/GensansLight.ttf)
+//     src url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+
 .main
     display: flex
+    font-family: Roboto
 
     #ingredients
         width 25%
@@ -20,6 +30,11 @@
 
     #rules
         width 25%
+        .multiplier
+            visibility: hidden
+            display:  inline
+            float right
+            margin-right: 10px
         .rule
             background: #83c2da
             margin: 5px
@@ -30,9 +45,11 @@
             border-color #a6d7ea
             border-width: 4px
             color white
-            font-family: fantasy
+            // // font-family: fantasy
             &.true
                 background: #97d697
+                .multiplier
+                    visibility: visible
 
         .bonus
             background: #d6c25f
@@ -44,15 +61,8 @@
             border-color #caab3e
             border-width: 4px
             color white
-            font-family: fantasy
-
-            .multiplier
-                visibility: hidden
-                display:  inline
-                float right
-                margin-right: 10px
-            
-            &.eval
+            // font-family: fantasy
+            &.true
                 background: #ffce1b
                 border-color: #ffb65b
                 .multiplier
@@ -64,7 +74,7 @@
             #range
                 margin 10px
             #rangeValue
-                font-family: fantasy
+                // font-family: fantasy
                 font-size: 35px
                 font-weight: bold
                 &.false
@@ -74,7 +84,7 @@
     #drink
         width 25%
         display: flex
-        font-family: fantasy
+        // font-family: fantasy
         #result
             text-align: center
             margin-top 50px
@@ -88,7 +98,7 @@
     .ingredient
         background #699acc
         border-radius: 5px
-        font-family: fantasy
+        // font-family: fantasy
         width 250px
         justify-content: space-between
         display:  flex

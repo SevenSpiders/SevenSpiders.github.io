@@ -35,3 +35,40 @@ function weighted_random(items, weights) {
     
     
 }
+
+
+
+
+
+function nameGenerator() {
+    let part1 = [
+        'Cosmic',
+        'Amazing',
+        'Sparkling',
+        'Burning',
+        'Refreshing',
+        'Fresh',
+        'Icey',
+        'Cool',
+        'Warming',
+        'Intoxicating',
+        'Addictive',
+        'Energy Rich'
+    ]
+
+    let part2 = [
+        'Rasputin',
+        'Molotov',
+        'Blitz',
+        'Tornado',
+        'Ball',
+        'Tonic',
+        'Potion',
+        'Rush',
+        'Shot',
+        'Sour',
+    ]
+
+
+    return 'the '+part1[randint(part1.length)]+ ' '+part2[randint(part2.length)]
+}

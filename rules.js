@@ -315,6 +315,18 @@ let bonusPatterns = {
         return f
     },
 
+    '+1forA' : (a)=>{
+        let f = ()=>{
+            let score = 0
+            for (let dice of shaker) {
+                if (dice.name == a) { score += 1}
+            }
+            return score
+        }
+        f.text = '+1 for each '+a
+        return f
+    },
+
     '+1forUniqueNumbers' : ()=>{
         let f = ()=>{
             let count = []
@@ -367,6 +379,16 @@ let bonusPatterns = {
         f.text = '+1 for every 3 points lower than 15'
         return f
     },
+
+    '+1forIngredientAorB' : (a,b)=>{
+        let f = ()=>{
+            let score = 0
+            for (let dice of shaker) { score += dice.name == a || dice.name == b ? 1 :0 }
+            return score
+        }
+        f.text = '+1 for every '+a+' or '+b
+        return f
+    },
 }
 
 let populateRules = ()=> {
@@ -397,9 +419,11 @@ let populateRules = ()=> {
             let b = ingredients[y].name
             rules.push(rulePatterns['ingredientAorB'](a,b))
             rules.push(rulePatterns['asManyAasB'](a,b))
+            boni.push(bonusPatterns['+1forIngredientAorB'](a,b))
             // rules.push(rulePatterns['mainIngredientAorB'](a,b))
         }
         rules.push(rulePatterns['mainIngredientA'](a))
+        boni.push(bonusPatterns['+1forA'](a))
     }
 
     rules.push(rulePatterns['contains a pair']())
@@ -457,7 +481,6 @@ function newRules() {
 
     numRules = Math.min(trueRules.length, numRules)
     while(chosenRules.length <numRules) {
-        // let r = trueRules[chosenRules.length]
         let r = weighted_random(trueRules, weights)
         if (r.text in chosenRules) { continue}
         else {
@@ -466,7 +489,13 @@ function newRules() {
             let d = createDiv('rule')
             d.innerText = r.text
             d.f = r
-            // d.classList.toggle('true', false) /// needed?
+
+            let m = createDiv('multiplier')
+            let value = Math.max(parseInt((1000-r.count)/1000*10),1)
+            m.innerText = '+'+value
+            d.appendChild(m)
+            d.value = value
+
             ruleDivs.push(d)
             DIV.appendChild(d)
         }
@@ -480,7 +509,7 @@ function newRules() {
         d.f = b
 
         let m = createDiv('multiplier')
-        m.innerText = 'x0'
+        m.innerText = '+0'
         d.appendChild(m)
 
         ruleDivs.push(d)
@@ -498,26 +527,28 @@ function newRules() {
 
 function evalRules(){
     let succeded = true
-    let points = 0
+    let score = 0
     for (let r of ruleDivs){
         if (r.classList.contains('rule')){
             let b = r.f()
             r.classList.toggle('true', b)
             succeded = b && succeded
+            score += b ? r.value :0 
         }
 
         if (r.classList.contains('bonus')){
             let x = r.f()
             if (x>0){
                 r.children[0].innerText = '+'+x
-                r.className = 'bonus eval'
-                points += x
+                r.className = 'bonus true'
+                score += x
             }
         }
         
     }
     succeded = succeded && glassSize == shaker.length
-    points = succeded ? points + 10 : 0
-    document.getElementById('score').innerText = points
+    score = succeded ? score : 'Fail'
+    document.getElementById('drinkName').innerText = nameGenerator()
+    document.getElementById('score').innerText = score
     document.getElementById('rangeValue').classList.toggle('false', shaker.length != glassSize)
 }
