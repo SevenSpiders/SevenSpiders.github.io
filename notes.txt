@@ -1,0 +1,67 @@
+
+
+
+2 categories
+
+    Ingredients -> mandatory
+        Name
+        Color
+        Flavour
+        "length" -> strength? price?
+        Price/ Cost/ Gold/ Quality/ Star
+
+    Bonus
+        Sum
+        number of X
+        Highs, lows
+
+
+>>>> Find the right Ingredients to maximize Bonus
+flavours as keywords? -> fruity adds highest number +1
+flavours give bonus points when combined well
+    -> fruity: +1 Bonus for each other fruit
+    -> sour > +1 if also sweet
+
+
+Ingredients
+    Chocolate
+    Lemon/ Lime
+    Ice
+    Chilli
+    Cream/ Milk
+    Banana
+    Pineapple
+    Apple
+    Grapes
+    Blueberry
+    Syrup
+    Mint
+
+
+
+Flavours
+    Sweet / dry
+    Sour
+    Spicey
+    Salty
+    Fruity
+    Cold
+    
+
+
+Emergent Flavours
+    Complex/ Rich/ 
+    Delicate
+    Balanced
+    Strong / Soft
+
+
+
+
+bonus ideas
+    different numbers/ Ingredients
+    +10 for a straight
+    +2 for each number/ ingredient pair
+
+    for every 5 points
+    

@@ -1,0 +1,113 @@
+.main
+    display: flex
+
+    #ingredients
+        width 25%
+        flex-direction: column
+        .roll
+            visibility: hidden
+        &.showRoll
+            .roll
+                visibility: visible
+    
+    #shaker
+        width: 25%
+        .roll
+            visibility: hidden
+        &.showRoll
+            .roll
+                visibility: visible
+
+    #rules
+        width 25%
+        .rule
+            background: #83c2da
+            margin: 5px
+            padding 5px
+            padding-left: 10px
+            border-radius 15px
+            border-style: solid
+            border-color #a6d7ea
+            border-width: 4px
+            color white
+            font-family: fantasy
+            &.true
+                background: #97d697
+
+        .bonus
+            background: #d6c25f
+            margin: 5px
+            padding 5px
+            padding-left: 10px
+            border-radius 15px
+            border-style: solid
+            border-color #caab3e
+            border-width: 4px
+            color white
+            font-family: fantasy
+
+            .multiplier
+                visibility: hidden
+                display:  inline
+                float right
+                margin-right: 10px
+            
+            &.eval
+                background: #ffce1b
+                border-color: #ffb65b
+                .multiplier
+                    visibility: visible
+        
+        .input
+            display: flex
+            flex-direction: row
+            #range
+                margin 10px
+            #rangeValue
+                font-family: fantasy
+                font-size: 35px
+                font-weight: bold
+                &.false
+                    color red
+
+            
+    #drink
+        width 25%
+        display: flex
+        font-family: fantasy
+        #result
+            text-align: center
+            margin-top 50px
+            #drinkName
+                
+                font-size: 50px
+            #score
+                font-size: 40px
+        
+
+    .ingredient
+        background #699acc
+        border-radius: 5px
+        font-family: fantasy
+        width 250px
+        justify-content: space-between
+        display:  flex
+        margin 5px
+        &:hover
+            cursor pointer
+
+        .left
+            margin-left: 10px
+
+        .name
+            font-size: 35px
+            color white
+        
+        .dice
+            font-size: 20px
+        
+        .roll
+            font-weight: bold
+            font-size: 60px
+            margin-right: 15px
+            color black

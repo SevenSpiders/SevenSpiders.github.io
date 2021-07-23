@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dice Cocktail</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- libraries-->
+    <!-- scripts-->
+    <script src="utils.js"></script>
+    <script src="dice.js"></script>
+    <script src="ingredients.js"></script>
+    <script src="rules.js"></script>
+    <script src="game.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="ingredients" id="ingredients">
+        <div class="header">
+          <button id="newIngredient">New Ingredient</button>
+        </div>
+      </div>
+      <div class="shaker" id="shaker">
+        <div class="header">
+          <button id="shake">Shake!</button>
+          <button id="clearShaker">Clear</button>
+        </div>
+      </div>
+      <div id="rules">
+        <div class="header">
+          <button id="newRules">New Rules</button>
+          <button id="evalRules">Evaluate</button>
+          <div class="input">
+            <input type="range" min="1" max="9" id="range">
+            <div id="rangeValue">5</div>
+          </div>
+        </div>
+      </div>
+      <div id="drink">
+        <div class="header"></div>
+        <div id="result">
+          <div id="drinkName">the Martian Sour</div>
+          <div id="score">100</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

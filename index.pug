@@ -1,0 +1,48 @@
+doctype html
+html(lang='en')
+    head
+        title Dice Cocktail
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(http-equiv='X-UA-Compatible', content='ie=edge')
+
+
+        // libraries
+
+
+        // scripts
+        script(src='utils.js')
+        script(src='dice.js')
+        script(src='ingredients.js')
+        
+        script(src='rules.js')
+        script(src='game.js')
+        //- script(src='script.js')
+        
+        
+
+        link(rel='stylesheet', href='style.css')
+    body
+        .main
+            #ingredients.ingredients
+                .header
+                    button#newIngredient New Ingredient
+            #shaker.shaker
+                .header
+                    button#shake Shake!
+                    button#clearShaker Clear
+
+            #rules
+                .header
+                    button#newRules New Rules
+                    button#evalRules Evaluate
+                    .input
+                        input(type="range", min="1", max="9")#range
+                        #rangeValue 5
+            
+            #drink
+                .header
+                #result
+                    #drinkName the Martian Sour
+                    #score 100
+
